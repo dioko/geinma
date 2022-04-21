@@ -6,11 +6,12 @@ import { Button, TextInput } from 'react-native-paper';
 import instance from '../axios/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export function LoginScreen({navigation}) {
-    //const [email, setEmail] = React.useState('tecnico@gmail.com');
-    const [email, setEmail] = React.useState('cliente@gmail.com');
+    const [email, setEmail] = React.useState('tecnico@gmail.com');
+    //const [email, setEmail] = React.useState('cliente@gmail.com');
     //const [email, setEmail] = React.useState('miguel@gmail.com');
-
     const [password, setPassword] = React.useState('123');
+
+    //const [password, setPassword] = React.useState('bwyzfvii');
 
   const {signIn} = React.useContext(AuthContext);
 

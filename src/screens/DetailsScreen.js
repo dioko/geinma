@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, FlatList, Image } from 'react-native';
+import {View, FlatList, Image, Text} from 'react-native';
 import {AuthContext} from '../util/utils';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button, Card, Paragraph, TextInput, Title } from 'react-native-paper';
@@ -196,7 +196,23 @@ export function DetailsScreen({route}) {
                 AGREGAR COMENTARIO
               </Button>
             </View>
-            <Comments comments={incidencia.comments}/>
+            <FlatList style={{marginBottom:8000}}
+                      data={incidencia.comments}
+                      renderItem={({item}) =>
+                          <View style={{padding:5, borderColor: '#E8E8E8', borderWidth:1, borderRadius: 5}}>
+                            <View >
+                              <Text>
+                                {item.user.person.name} {item.user.person.surname} {item.user.person.secondSurname}
+                              </Text>
+
+                            </View>
+
+                            <Text>
+                              {item.description}
+                            </Text>
+                          </View>
+                      }
+                      keyExtractor={item => item.id} />
           </Card.Content>
         </Card>
       </SafeAreaView>
